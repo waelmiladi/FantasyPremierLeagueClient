@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 6.9.0
+dependencies:
+  cache_directories:
+    - "node_modules"
+  override:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+    - yarn
+  post:
+   - npm run coverage:codecov
