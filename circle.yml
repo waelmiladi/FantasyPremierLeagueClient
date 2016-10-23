@@ -7,5 +7,6 @@ dependencies:
   override:
     - curl -o- -L https://yarnpkg.com/install.sh | bash
     - yarn
+test:
   post:
-   - npm run coverage:codecov
+    - yarn run codecov
