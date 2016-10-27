@@ -1,13 +1,23 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
-class App extends Component {
+class App extends React.PureComponent {
+  renderTeams() {
+    return (
+      <div>
+        {this.props.teams.map(team => <div key={team.id}>{team.name}</div>)}
+      </div>
+    );
+  }
   render() {
-    return <div>Test</div>;
+    return this.props.teams ? this.renderTeams() : null;
   }
 }
 
 App.propTypes = {
-  teams: PropTypes.array,
+  teams: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  })),
 };
 
 export default App;
