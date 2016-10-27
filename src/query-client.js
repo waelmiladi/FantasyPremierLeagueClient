@@ -3,7 +3,7 @@ const getTeams = () => {
     method: 'POST',
     body: '{ teams { id, name } }',
   }).then((response) => {
-    return response.json().then(data => data);
+    return response.json();
   });
 };
 
