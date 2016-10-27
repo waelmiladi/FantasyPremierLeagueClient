@@ -2,7 +2,7 @@ function getTeams(client) {
   return (dispatch) => {
     dispatch(getTeamsRequest());
     client.getTeams().then((data) => {
-      dispatch(getTeamsSuccess(data.teams));
+      dispatch(getTeamsSuccess(data.league.teams));
     });
   };
 }

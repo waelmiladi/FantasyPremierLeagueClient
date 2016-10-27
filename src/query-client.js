@@ -1,7 +1,27 @@
+const url = 'http://localhost:8080/';
+
 const getTeams = () => {
-  return fetch('http://localhost:8080/fpl', {
+  return fetch(url, {
     method: 'POST',
-    body: '{ teams { id, name } }',
+    body: `{
+      league {
+        teams {
+          identifier
+          name
+          position
+          overallStats {
+            wins
+            draws
+            losses
+            points
+            goalsScored
+            goalsConceded
+            goalDifference
+            form
+          }
+        }
+      }
+    }`,
   }).then((response) => {
     return response.json();
   });
