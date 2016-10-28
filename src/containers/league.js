@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import App from '../components/app';
+import League from '../components/league';
 
 const mapStateToProps = function (state) {
-  const { teams } = state.app;
+  const { teams } = state.league;
   return { teams };
 };
 
 export default connect(
   mapStateToProps,
-)(App);
+)(League);

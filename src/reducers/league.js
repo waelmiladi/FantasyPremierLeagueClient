@@ -1,4 +1,6 @@
-const initialState = {};
+const initialState = {
+  teams: [],
+};
 
 module.exports = function (state = initialState, action) {
   switch (action.type) {
