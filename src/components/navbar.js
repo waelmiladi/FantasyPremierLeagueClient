@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Navbar = () => (
   <nav>
     <div className="nav-wrapper blue lighten-1">
-      <a href="/" className="brand-logo">EFL</a>
+      <Link to="/" className="brand-logo">EFL</Link>
     </div>
   </nav>
 );

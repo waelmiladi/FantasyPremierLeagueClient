@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import app from './app';
+import { routerReducer } from 'react-router-redux';
+import league from './league';
+import team from './team';
 
 module.exports = combineReducers({
-  app,
+  league,
+  team,
+  routing: routerReducer,
 });

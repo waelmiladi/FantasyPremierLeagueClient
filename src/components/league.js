@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 import '../stylesheets/league.css';
 
 const columns = [
-  { property: 'position', displayName: 'Pos', sortable: false },
+  { property: 'position', displayName: 'Pos', sortable: true },
   { property: 'name', displayName: 'Name', sortable: false },
   { property: 'wins', displayName: 'W', sortable: true },
   { property: 'draws', displayName: 'D', sortable: true },
@@ -10,7 +11,7 @@ const columns = [
   { property: 'goalsScored', displayName: 'GF', sortable: true },
   { property: 'goalsConceded', displayName: 'GA', sortable: true },
   { property: 'goalDifference', displayName: 'GD', sortable: true },
-  { property: 'points', displayName: 'Points', sortable: true },
+  { property: 'points', displayName: 'Points', sortable: false },
 ];
 
 const badgeClass = teamName =>
@@ -21,8 +22,8 @@ class League extends React.PureComponent {
     super(props);
 
     this.state = {
-      sortProperty: 'points',
-      sortAscending: false,
+      sortProperty: 'position',
+      sortAscending: true,
     };
   }
   sortedTeams() {
@@ -46,8 +47,10 @@ class League extends React.PureComponent {
       <tr key={team.identifier}>
         <td>{team.position}</td>
         <td>
-          <span className={`team-badge ${badgeClass(team.name)}`} />
-          <span className="team-name">{team.name}</span>
+          <Link to={`/team/${team.identifier}`}>
+            <span className={`team-badge ${badgeClass(team.name)}`} />
+            <span className="team-name">{team.name}</span>
+          </Link>
         </td>
         <td>{team.wins}</td>
         <td>{team.draws}</td>
@@ -85,12 +88,18 @@ class League extends React.PureComponent {
   }
   render() {
     return (
-      <table className="centered">
-        {this.renderHead()}
-        <tbody>
-          {this.sortedTeams() ? this.props.teams.map(this.renderTeam) : null}
-        </tbody>
-      </table>
+      <div className="row">
+        <div className="col s12">
+          <div className="card-panel">
+            <table>
+              {this.renderHead()}
+              <tbody>
+                {this.sortedTeams() ? this.props.teams.map(this.renderTeam) : null}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     );
   }
 }

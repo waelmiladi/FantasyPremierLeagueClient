@@ -1,23 +1,57 @@
 const url = 'http://localhost:8080/';
 
+const teamFields = `
+identifier
+name
+position
+overallStats {
+  wins
+  draws
+  losses
+  points
+  goalsScored
+  goalsConceded
+  goalDifference
+}
+homeStats {
+  wins
+  draws
+  losses
+  points
+  goalsScored
+  goalsConceded
+  goalDifference
+}
+awayStats {
+  wins
+  draws
+  losses
+  points
+  goalsScored
+  goalsConceded
+  goalDifference
+}`;
+
+const getTeam = (identifier) => {
+  return fetch(url, {
+    method: 'POST',
+    body: `{
+      team(identifier: "${identifier}") {
+        ${teamFields}
+      }
+    }`,
+  }).then((response) => {
+    return response.json().then(data => buildTeam(data.team));
+  });
+};
+
 const getTeams = () => {
   return fetch(url, {
     method: 'POST',
     body: `{
       league {
         teams {
-          identifier
-          name
-          position
-          overallStats {
-            wins
-            draws
-            losses
-            points
-            goalsScored
-            goalsConceded
-            goalDifference
-          }
+          ${teamFields}
         }
       }
     }`,
@@ -42,9 +76,12 @@ function buildTeam(response) {
     goalsScored: response.overallStats.goalsScored,
     goalsConceded: response.overallStats.goalsConceded,
     goalDifference: response.overallStats.goalDifference,
+    homeStats: response.homeStats,
+    awayStats: response.awayStats,
   };
 }
 
 module.exports = {
+  getTeam,
   getTeams,
 };
