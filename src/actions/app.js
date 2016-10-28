@@ -1,8 +1,8 @@
 function getTeams(client) {
   return (dispatch) => {
     dispatch(getTeamsRequest());
-    client.getTeams().then((data) => {
-      dispatch(getTeamsSuccess(data.league.teams));
+    client.getTeams().then((teams) => {
+      dispatch(getTeamsSuccess(teams));
     });
   };
 }

@@ -7,6 +7,7 @@ import client from './query-client';
 import { getTeams } from './actions/app';
 import reducers from './reducers/index';
 import App from './containers/app';
+import './stylesheets/index.css';
 
 const store = createStore(
   reducers,

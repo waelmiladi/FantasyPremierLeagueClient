@@ -1,0 +1,87 @@
+.team-badge {
+  background-image: url('../images/badges@x2.png');
+  background-size: 300px 275px;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.team-badge.arsenal {
+  background-position: -25px -25px;
+}
+.team-badge.bournemouth {
+  background-position: -100px -100px;
+}
+.team-badge.burnley {
+  background-position: -25px -125px;
+}
+.team-badge.chelsea {
+  background-position: -150px 0;
+}
+.team-badge.crystal-palace {
+  background-position: -150px -50px;
+}
+.team-badge.everton {
+  background-position: -100px -150px;
+}
+.team-badge.hull-city {
+  background-position: -175px -150px;
+}
+.team-badge.leicester-city {
+  background-position: 0 0;
+}
+.team-badge.liverpool {
+  background-position: -200px -50px;
+}
+.team-badge.man-city {
+  background-position: -200px -175px;
+}
+.team-badge.man-united {
+  background-position: -150px -200px;
+}
+.team-badge.middlesbrough {
+  background-position: -50px -200px;
+}
+.team-badge.southampton {
+  background-position: -250px -200px;
+}
+.team-badge.stoke-city {
+  background-position: -25px -250px;
+}
+.team-badge.sunderland {
+  background-position: -50px -250px;
+}
+.team-badge.swansea-city {
+  background-position: -75px -250px;
+}
+.team-badge.tottenham {
+  background-position: -125px -250px;
+}
+.team-badge.watford {
+  background-position: -200px -250px;
+}
+.team-badge.west-bromwich {
+  background-position: -225px -250px;
+}
+.team-badge.west-ham {
+  background-position: -250px -250px;
+}
+
+.team-name {
+  vertical-align: super;
+}
+
+.league-header.sortable {
+  cursor: pointer;
+}
+
+.league-sort {
+  position: relative;
+  top: 2px;
+}
+
+td, th {
+  padding: 5px;
+}

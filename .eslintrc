@@ -12,6 +12,8 @@
     "func-names": 0,
     "no-underscore-dangle": 0,
     "no-use-before-define": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "react/forbid-prop-types": [2, { "forbid": ["any", "object"] }],
     "react/no-unused-prop-types": [2, { skipShapeProps: true }],
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": "off"

@@ -17,15 +17,33 @@ const getTeams = () => {
             goalsScored
             goalsConceded
             goalDifference
-            form
           }
         }
       }
     }`,
   }).then((response) => {
-    return response.json();
+    return response.json().then(buildTeams);
   });
 };
+
+function buildTeams(response) {
+  return response.league.teams.map(buildTeam);
+}
+
+function buildTeam(response) {
+  return {
+    identifier: response.identifier,
+    name: response.name,
+    position: response.position,
+    wins: response.overallStats.wins,
+    draws: response.overallStats.draws,
+    losses: response.overallStats.losses,
+    points: response.overallStats.points,
+    goalsScored: response.overallStats.goalsScored,
+    goalsConceded: response.overallStats.goalsConceded,
+    goalDifference: response.overallStats.goalDifference,
+  };
+}
 
 module.exports = {
   getTeams,
