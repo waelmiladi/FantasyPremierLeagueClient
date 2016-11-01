@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { badgeClass } from '../helpers/team';
 import '../stylesheets/league.css';
 
 const columns = [
@@ -13,9 +14,6 @@ const columns = [
   { property: 'goalDifference', displayName: 'GD', sortable: true },
   { property: 'points', displayName: 'Points', sortable: false },
 ];
-
-const badgeClass = teamName =>
-  teamName.toLowerCase().replace(' ', '-');
 
 class League extends React.PureComponent {
   constructor(props) {

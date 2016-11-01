@@ -1,8 +1,16 @@
 function showTeam(client, identifier) {
   return (dispatch) => {
+    dispatch(getTeamRequest(identifier));
     client.getTeam(identifier).then((team) => {
       dispatch(getTeamSuccess(team));
     });
+  };
+}
+
+function getTeamRequest(identifier) {
+  return {
+    type: 'GET_TEAM_REQUEST',
+    identifier,
   };
 }
 
